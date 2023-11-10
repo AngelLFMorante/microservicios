@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- NO ES UN EJECUTABLE -->
+
+  <parent>
+    <!-- Le decimos que es un proyecto de SpringBoot -->
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.1.5</version>
+  </parent>
+
+  <groupId>com.mycompany.app</groupId>
+  <artifactId>SpringMicroservices</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <name>SpringMicroservices</name>
+  <!-- Con esta etiqueta le decimos que va a ser el Padre de los modulos, no se va a levantar el proyecto-->
+  <packaging>pom</packaging>
+
+  <!-- Para incluir a los hijos al padre lo creamos como modulos -->
+  <modules>
+    <module>microservice-gateway</module>
+    <module>microservice-eureka</module>
+    <module>microservice-config</module>
+    <module>microservice-student</module>
+    <module>microservice-course</module>
+  </modules>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+    <!-- Aqui tendremos todas las dependencias que van a heredar todos los microservicios-->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.24</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <!-- este es el plugin que maven nos ayuda a realizar nuestro proyecto -->
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
+          <version>3.1.5</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
+  </build>
+
+</project>

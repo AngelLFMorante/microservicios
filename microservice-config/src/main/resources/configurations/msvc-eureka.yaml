@@ -1,0 +1,19 @@
+# definicion del puerto del cual va a correr la aplicacion
+server:
+  port: 8761
+
+#name de la aplicacion
+spring:
+  application:
+    name: msvc-eureka
+
+#Inicializar eureka
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false #Eureka se registra por si mismo, y con esto le decimos que no.
+    fetch-registry: false
+    server-url:
+      defaultZone: http://localhost:${server.port}/eureka/ #Esta es la ruta que va a funcionar el server de eureka
+

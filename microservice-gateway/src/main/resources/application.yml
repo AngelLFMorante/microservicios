@@ -1,0 +1,30 @@
+####################################
+## PARA SEGURIDAD SPRING SECUTIRY ##
+####################################
+
+#Si quisieramos realizar una seguridad para nuestros microservicios, tendriamos que implementarlo en el gateway
+#Ya que es nuesta puerta de entrada, con lo que toda la seguridad iria en este microservicio
+
+#server:
+  #port: 8080
+
+spring:
+  application:
+    name: mscv-gateway
+  config:
+    import: optional:configserver:http://localhost:8888
+  #Configuracion de gateway
+  #cloud:
+    #gateway:
+      #discovery:
+        #locator:
+          #enabled: true
+      #routes: #rutas de los microservicios
+        #- id: students
+          #uri: http://localhost:8090
+          #predicates: #nos sirve para que podamos acceder a todos los endpoints
+            #- Path=/api/student/**
+        #- id: courses
+          #uri: http://localhost:9090
+          #predicates:
+            #- Path=/api/course/**

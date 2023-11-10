@@ -1,0 +1,27 @@
+#No hace falta que se registre en eureka
+eureka:
+  client:
+    register-with-eureka: false
+
+server:
+  port: 8080
+
+spring:
+  application:
+    name: mscv-gateway
+
+  #Configuracion de gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes: #rutas de los microservicios
+        - id: students
+          uri: http://localhost:8090
+          predicates: #nos sirve para que podamos acceder a todos los endpoints
+            - Path=/api/student/**
+        - id: courses
+          uri: http://localhost:9090
+          predicates:
+            - Path=/api/course/**

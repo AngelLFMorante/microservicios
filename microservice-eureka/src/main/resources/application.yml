@@ -1,0 +1,12 @@
+#name de la aplicacion
+#spring:
+  #application:
+   # name: msvc-eureka
+  #config: #Config server, si no lo hacemos eureka al levantarlo da error
+   # import: optional:configserver:http://localhost:8888 #Le decimos que esta es la ruta donde se encuentra el configServer
+
+spring:
+  application:
+    name: msvc-eureka
+  config:
+    import: optional:configserver:http://localhost:8888

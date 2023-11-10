@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: msvc-student #Este nombre debe der ser como en el configurations
+  config: #Config server
+    import: optional:configserver:http://localhost:8888

@@ -1,0 +1,13 @@
+server:
+  port: 8888 #Normalmente se suele poner este puerto
+
+spring:
+  profiles: #Se puede poner perfiles
+    active: native #El generico que trabaja springboot
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        native:
+          search-location: classpath:/configurations #Aqui esta la ruta de todos nuestros microservicios osea toda la configuracion
